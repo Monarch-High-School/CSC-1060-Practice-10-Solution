@@ -1,0 +1,220 @@
+name: Autograding Tests
+'on': 
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: testGetAverage
+      id: testgetaverage
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testGetAverage
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testGetAverage
+        timeout: 1
+        max-score: 1
+    - name: testGetAverageEmptyMatrix
+      id: testgetaverageemptymatrix
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testGetAverageEmptyMatrix
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testGetAverageEmptyMatrix
+        timeout: 1
+        max-score: 1
+    - name: testGetAverageSingleElement
+      id: testgetaveragesingleelement
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testGetAverageSingleElement
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testGetAverageSingleElement
+        timeout: 1
+        max-score: 1
+    - name: testGetAverageNegativeValues
+      id: testgetaveragenegativevalues
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testGetAverageNegativeValues
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testGetAverageNegativeValues
+        timeout: 1
+        max-score: 1
+    - name: testGetAverageRows
+      id: testgetaveragerows
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testGetAverageRows
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testGetAverageRows
+        timeout: 1
+        max-score: 1
+    - name: testGetAverageRowsEmptyMatrix
+      id: testgetaveragerowsemptymatrix
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testGetAverageRowsEmptyMatrix
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testGetAverageRowsEmptyMatrix
+        timeout: 1
+        max-score: 1
+    - name: testGetAverageRowsSingleRow
+      id: testgetaveragerowssinglerow
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testGetAverageRowsSingleRow
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testGetAverageRowsSingleRow
+        timeout: 1
+        max-score: 1
+    - name: testGetAverageCol
+      id: testgetaveragecol
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testGetAverageCol
+        setup-command: ''
+        command: gradle test --test MatrixManipulatorTest.testGetAverageCol
+        timeout: 1
+        max-score: 1
+    - name: testGetAverageColEmptyMatrix
+      id: testgetaveragecolemptymatrix
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testGetAverageColEmptyMatrix
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testGetAverageColEmptyMatrix
+        timeout: 1
+        max-score: 1
+    - name: testGetAverageColSingleColumn
+      id: testgetaveragecolsinglecolumn
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testGetAverageColSingleColumn
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testGetAverageColSingleColumn
+        timeout: 1
+        max-score: 1
+    - name: testReshape
+      id: testreshape
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testReshape
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testReshape
+        timeout: 1
+        max-score: 1
+    - name: testReshapeInvalidDimensions
+      id: testreshapeinvaliddimensions
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testReshapeInvalidDimensions
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testReshapeInvalidDimensions
+        timeout: 1
+        max-score: 1
+    - name: testReshapeSingleElement
+      id: testreshapesingleelement
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testReshapeSingleElement
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testReshapeSingleElement
+        timeout: 1
+        max-score: 1
+    - name: testPopulateRandom
+      id: testpopulaterandom
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testPopulateRandom
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testPopulateRandom
+        timeout: 1
+        max-score: 1
+    - name: testPopulateRandomInvalidBounds
+      id: testpopulaterandominvalidbounds
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testPopulateRandomInvalidBounds
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testPopulateRandomInvalidBounds
+        timeout: 1
+        max-score: 1
+    - name: testContainsDuplicates
+      id: testcontainsduplicates
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testContainsDuplicates
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testContainsDuplicates
+        timeout: 1
+        max-score: 1
+    - name: testContainsDuplicatesWithDuplicates
+      id: testcontainsduplicateswithduplicates
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testContainsDuplicatesWithDuplicates
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testContainsDuplicatesWithDuplicates
+        timeout: 1
+        max-score: 1
+    - name: testContainsDuplicatesEmptyMatrix
+      id: testcontainsduplicatesemptymatrix
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testContainsDuplicatesEmptyMatrix
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testContainsDuplicatesEmptyMatrix
+        timeout: 1
+        max-score: 1
+    - name: testContainsDuplicatesSingleRow
+      id: testcontainsduplicatessinglerow
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testContainsDuplicatesSingleRow
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testContainsDuplicatesSingleRow
+        timeout: 1
+        max-score: 1
+    - name: testContainsDuplicatesSingleElement
+      id: testcontainsduplicatessingleelement
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testContainsDuplicatesSingleElement
+        setup-command: ''
+        command: gradle test --tests MatrixManipulatorTest.testContainsDuplicatesSingleElement
+        timeout: 1
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TESTGETAVERAGE_RESULTS: "${{steps.testgetaverage.outputs.result}}"
+        TESTGETAVERAGEEMPTYMATRIX_RESULTS: "${{steps.testgetaverageemptymatrix.outputs.result}}"
+        TESTGETAVERAGESINGLEELEMENT_RESULTS: "${{steps.testgetaveragesingleelement.outputs.result}}"
+        TESTGETAVERAGENEGATIVEVALUES_RESULTS: "${{steps.testgetaveragenegativevalues.outputs.result}}"
+        TESTGETAVERAGEROWS_RESULTS: "${{steps.testgetaveragerows.outputs.result}}"
+        TESTGETAVERAGEROWSEMPTYMATRIX_RESULTS: "${{steps.testgetaveragerowsemptymatrix.outputs.result}}"
+        TESTGETAVERAGEROWSSINGLEROW_RESULTS: "${{steps.testgetaveragerowssinglerow.outputs.result}}"
+        TESTGETAVERAGECOL_RESULTS: "${{steps.testgetaveragecol.outputs.result}}"
+        TESTGETAVERAGECOLEMPTYMATRIX_RESULTS: "${{steps.testgetaveragecolemptymatrix.outputs.result}}"
+        TESTGETAVERAGECOLSINGLECOLUMN_RESULTS: "${{steps.testgetaveragecolsinglecolumn.outputs.result}}"
+        TESTRESHAPE_RESULTS: "${{steps.testreshape.outputs.result}}"
+        TESTRESHAPEINVALIDDIMENSIONS_RESULTS: "${{steps.testreshapeinvaliddimensions.outputs.result}}"
+        TESTRESHAPESINGLEELEMENT_RESULTS: "${{steps.testreshapesingleelement.outputs.result}}"
+        TESTPOPULATERANDOM_RESULTS: "${{steps.testpopulaterandom.outputs.result}}"
+        TESTPOPULATERANDOMINVALIDBOUNDS_RESULTS: "${{steps.testpopulaterandominvalidbounds.outputs.result}}"
+        TESTCONTAINSDUPLICATES_RESULTS: "${{steps.testcontainsduplicates.outputs.result}}"
+        TESTCONTAINSDUPLICATESWITHDUPLICATES_RESULTS: "${{steps.testcontainsduplicateswithduplicates.outputs.result}}"
+        TESTCONTAINSDUPLICATESEMPTYMATRIX_RESULTS: "${{steps.testcontainsduplicatesemptymatrix.outputs.result}}"
+        TESTCONTAINSDUPLICATESSINGLEROW_RESULTS: "${{steps.testcontainsduplicatessinglerow.outputs.result}}"
+        TESTCONTAINSDUPLICATESSINGLEELEMENT_RESULTS: "${{steps.testcontainsduplicatessingleelement.outputs.result}}"
+      with:
+        runners: testgetaverage,testgetaverageemptymatrix,testgetaveragesingleelement,testgetaveragenegativevalues,testgetaveragerows,testgetaveragerowsemptymatrix,testgetaveragerowssinglerow,testgetaveragecol,testgetaveragecolemptymatrix,testgetaveragecolsinglecolumn,testreshape,testreshapeinvaliddimensions,testreshapesingleelement,testpopulaterandom,testpopulaterandominvalidbounds,testcontainsduplicates,testcontainsduplicateswithduplicates,testcontainsduplicatesemptymatrix,testcontainsduplicatessinglerow,testcontainsduplicatessingleelement
