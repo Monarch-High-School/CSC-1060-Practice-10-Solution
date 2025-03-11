@@ -210,9 +210,7 @@ public class MatrixManipulatorTest {
     @Test
     public void testContainsDuplicatesEmptyMatrix() {
         String[][] matrix = {};
-        boolean expected = false;
-        boolean actual = MatrixManipulator.containsDuplicates(matrix);
-        assertEquals(expected, actual);
+        assertThrows(IllegalArgumentException.class, () -> MatrixManipulator.containsDuplicates(matrix));
     }
 
     @Test
